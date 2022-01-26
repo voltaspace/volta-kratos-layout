@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package pb.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/go-kratos/kratos-layout/api/pb/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.pb.v1";
+option java_outer_classname = "SweetProtoV1";
+
+// The Sweet service definition.
+service Sweet {
+  // Sends a Sweet
+  rpc Ping(BaseReq) returns (BaseReply)  {
+    option (google.api.http) = {
+      get: "/ping",
+    };
+  }
+}
+
+message BaseReq {
+  int64 data = 1;
+}
+
+message BaseReply{
+  string data = 1;
+  int64 code = 2;
+  string msg = 3;
+}

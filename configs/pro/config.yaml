@@ -1,0 +1,40 @@
+server:
+  http:
+    addr: 0.0.0.0:18000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:19000
+    timeout: 1s
+  swagger:
+    power: false
+  env: pro
+  cronjobPower: true
+
+data:
+  database:
+    - {
+      name: test,
+      driver: mysql,
+      source: "root@(127.0.0.1:3306)/volta?charset=utf8&parseTime=True&loc=Local",
+      power: false
+    }
+  redis:
+    - {
+      name: test,
+      addr: "127.0.0.1:6379",
+      password: root,
+      db: 1,
+      readTimeout: 0.2s,
+      writeTimeout: 0.2s,
+      power: false
+    }
+
+  elasticsearch:
+    - {
+      name: test,
+      host: "http://127.0.0.1:9200",
+      username: "root",
+      password: "root",
+      power: false
+    }
+
